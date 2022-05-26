@@ -4,6 +4,9 @@
 name: Build and deploy Node.js app to Azure Web App - rpademo-navitas
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -11,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: AutoModality/action-clean@v1
       - uses: actions/checkout@v2
 
       - name: Set up Node.js version
@@ -22,14 +24,14 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build --prod
-        working-directory: .
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: ./dist/posts
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,6 +52,5 @@ jobs:
         with:
           app-name: 'rpademo-navitas'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AF0B5BB15A3F4C409F74DAB3BD14DD08 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_578BFF72C8F04D7592E8978241FDE1B3 }}
           package: .
-
