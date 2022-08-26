@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-    ACCOUNT_NAME: "ngangular",
-  SAS: "https://ngangular.blob.core.windows.net/?sv=2020-08-04&ss=bfqt&srt=c&sp=rwdlacupitfx&se=2022-05-16T11:23:45Z&st=2022-05-16T03:23:45Z&spr=https,http&sig=luUeF9TsxKKV1L3rgCtFlVjIO0ZjbCIFJIdi9Q%2BG%2BKo%3D",
+    ACCOUNT_NAME: "ngangular",  
+  SAS: "https://myngangular.blob.core.windows.net/?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-09-26T22:59:21Z&st=2022-08-26T14:59:21Z&spr=https,http&sig=WUx%2BY3zj9xbT0cTTOWgCftmTh4FkTfIYrPXdSU%2BxnSQ%3D",
   URL: "https://api-rpademo-navitas.azurewebsites.net",
 };
